@@ -1,0 +1,62 @@
+.know {
+  background-color: rgb(127, 242, 255);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.knowInner {
+  width: 650px;
+  background-color: white;
+  height: max-content;
+  margin-top: 100px;
+  border-radius: 10px;
+}
+.knowWrapper {
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+}
+.HomeLink {
+  font-size: 14px;
+}
+.otherElements {
+  padding: 0 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.logo {
+}
+.knowTitle {
+  color: #4285f4;
+}
+.text {
+  font-size: 16px;
+  font-weight: 100;
+  color: gray;
+}
+.inputItem {
+  display: flex;
+  flex-direction: column;
+  color: rgb(88, 86, 86);
+  gap: 10px;
+}
+.input {
+  outline: none;
+  border: none;
+  background-color: rgb(222, 212, 212);
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.option {
+  max-width: 200px;
+  color: #174999;
+}
+
+@media screen and (max-width: 700px) {
+  .knowInner {
+    width: 100%;
+  }
+}
