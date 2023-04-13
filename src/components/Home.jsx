@@ -8,10 +8,10 @@ const Home = () => {
       <h1 className="title">Yenepoya University Fee Structure 2023-24</h1>
       <h2 className="subTitle">Choose Your Campus</h2>
       <div className="buttons">
-        <Link to={"/mangalore"}>
+        <Link to={"/knowyourfees/mangalore"}>
           <button className="button button1">MANGALORE</button>
         </Link>
-        <Link to={"/mangalore"}>
+        <Link to={"/knowyourfees/bangalore"}>
           <button className="button button2">BANGALORE</button>
         </Link>
       </div>

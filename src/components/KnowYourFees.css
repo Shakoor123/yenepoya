@@ -1,6 +1,7 @@
 .know {
   background-color: rgb(127, 242, 255);
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   display: flex;
   justify-content: center;
 }
@@ -12,7 +13,7 @@
   border-radius: 10px;
 }
 .knowWrapper {
-  padding: 7px;
+  padding: 7px 7px;
   display: flex;
   flex-direction: column;
 }
@@ -20,7 +21,7 @@
   font-size: 14px;
 }
 .otherElements {
-  padding: 0 30px;
+  padding: 30px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -30,6 +31,7 @@
 }
 .knowTitle {
   color: #4285f4;
+  text-transform: uppercase;
 }
 .text {
   font-size: 16px;
@@ -51,12 +53,24 @@
   font-size: 16px;
 }
 .option {
-  max-width: 200px;
+  max-width: 100%;
   color: #174999;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
 }
-
+.option:hover {
+  background-color: rgb(222, 212, 212);
+}
 @media screen and (max-width: 700px) {
   .knowInner {
     width: 100%;
   }
+}
+.options {
+  background-color: rgb(253, 238, 238);
+  border-radius: 5px;
+  height: 600px;
+  overflow: scroll;
 }

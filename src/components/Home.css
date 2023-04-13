@@ -25,9 +25,17 @@
   color: #3dac62;
   border: 1px solid #3dac62;
 }
+.button1:hover {
+  background-color: #3dac62;
+  color: white;
+}
 .button2 {
   color: #a45b9c;
   border: 1px solid #a45b9c;
+}
+.button2:hover {
+  background-color: #a45b9c;
+  color: white;
 }
 @media screen and (max-width: 700px) {
   .home {

@@ -1,5 +1,84 @@
 .fees {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(127, 242, 255);
+}
+
+.feesWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding: 20px;
+}
+.logowrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  background-color: #00838f;
+  padding: 20px;
+  gap: 5 0px;
+  border-radius: 10px 10px 0 0;
+}
+.sublogo {
+  width: 50px;
+}
+.logoText {
+  font-size: 25px;
+  color: white;
+  width: auto;
+}
+.bookingWrapper {
+  display: flex;
+  align-items: start;
   justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  background: white;
+  margin-bottom: 20px;
+  border-radius: 0 0 10px 10px;
+  gap: 10px;
+}
+.bookingPrice {
+  font-size: 20px;
+  font-weight: 600;
+}
+.bookingCampus {
+  font-size: 16px;
+  font-weight: 100;
+  color: gray;
+}
+.semesterFees {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+}
+th {
+  font-size: 20px;
+}
+.goback {
+  background-color: white;
+  font-size: 15px;
+  padding: 10px;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid gray;
+  outline: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
 }
