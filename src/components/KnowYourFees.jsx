@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./KnowYourFees.css";
 import yenepoya from "../assets/yenepoya.png";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import { bangaloreCourses, mangaloreCourses } from "../wesiteData";
+import { mangaloreCourses } from "../mangalore";
+import { bangaloreCourses } from "../bangalore";
 const KnowYourFees = () => {
   const [phoneView, setPhoneView] = useState(false);
   const [courseView, setCourseView] = useState(false);
@@ -81,14 +82,14 @@ const KnowYourFees = () => {
                     <div>
                       {mangaloreCourses.map((c) => (
                         <div
-                          value={c.course}
+                          value={c.COURSE}
                           key={c.id}
                           className="option"
                           onClick={() => {
-                            CallFun(c.course);
+                            CallFun(c.COURSE);
                           }}
                         >
-                          {c.course}
+                          {c.COURSE}
                         </div>
                       ))}
                     </div>
@@ -96,14 +97,14 @@ const KnowYourFees = () => {
                     <div>
                       {bangaloreCourses.map((c) => (
                         <div
-                          value={c.course}
+                          value={c.COURSE}
                           key={c.id}
                           className="option"
                           onClick={() => {
-                            CallFun(c.course);
+                            CallFun(c.COURSE);
                           }}
                         >
-                          {c.course}
+                          {c.COURSE}
                         </div>
                       ))}
                     </div>
