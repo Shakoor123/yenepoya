@@ -4,6 +4,8 @@ import yenepoya from "../assets/yenepoya.png";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { mangaloreCourses } from "../mangalore";
 import { bangaloreCourses } from "../bangalore";
+import Privyr from "privyr-sdk";
+
 const KnowYourFees = () => {
   const [phoneView, setPhoneView] = useState(false);
   const [courseView, setCourseView] = useState(false);
@@ -13,12 +15,28 @@ const KnowYourFees = () => {
   const location = useLocation();
   const currentPlace = location.pathname.split("/")[2];
   const navigate = useNavigate();
-  const CallFun = (cc) => {
+  const CallFun = (cc, ce) => {
     console.log("name :", name);
     console.log("phone :", phone);
     console.log("course :", cc);
-    navigate("/fees");
+    //privyr integration
+    Privyr.init("Cs4ifdp3");
+    Privyr.createLead({
+      name: name,
+      phone: phone,
+      course: ce,
+      place: currentPlace,
+    })
+      .then(() => {
+        console.log("inserted successfull");
+      })
+      .catch((error) => {
+        console.log("error in insertion");
+      });
+    //navigation
+    navigate(`/fees/${currentPlace}/${cc}`);
   };
+
   return (
     <div className="know">
       <div className="knowInner">
@@ -86,7 +104,7 @@ const KnowYourFees = () => {
                           key={c.id}
                           className="option"
                           onClick={() => {
-                            CallFun(c.COURSE);
+                            CallFun(c.id, c.COURSE);
                           }}
                         >
                           {c.COURSE}
@@ -101,7 +119,7 @@ const KnowYourFees = () => {
                           key={c.id}
                           className="option"
                           onClick={() => {
-                            CallFun(c.COURSE);
+                            CallFun(c.id, c.COURSE);
                           }}
                         >
                           {c.COURSE}
