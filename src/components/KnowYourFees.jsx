@@ -4,7 +4,7 @@ import yenepoya from "../assets/yenepoya.png";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { mangaloreCourses } from "../mangalore";
 import { bangaloreCourses } from "../bangalore";
-import Privyr from "privyr-sdk";
+import axios from "axios";
 
 const KnowYourFees = () => {
   const [phoneView, setPhoneView] = useState(false);
@@ -15,23 +15,94 @@ const KnowYourFees = () => {
   const location = useLocation();
   const currentPlace = location.pathname.split("/")[2];
   const navigate = useNavigate();
-  const CallFun = (cc, ce) => {
+  const CallFun = async (cc, ce) => {
     console.log("name :", name);
     console.log("phone :", phone);
     console.log("course :", cc);
     //privyr integration
-    Privyr.init("Cs4ifdp3");
-    Privyr.createLead({
-      name: name,
-      phone: phone,
-      course: ce,
-      place: currentPlace,
-    })
-      .then(() => {
-        console.log("inserted successfull");
+
+    // var myHeaders = new Headers();
+    // myHeaders.append("X-TOKEN", "Cs4ifdp3");
+    // myHeaders.append("Content-Type", "application/json");
+
+    // var raw = JSON.stringify({
+    //   name: "abdul shakoor",
+    //   lead_source: "Avengers Website",
+    //   email: "tony@avengers.com",
+    //   phone: "+15559876543",
+    //   other_fields: {
+    //     Country: "Wakanda",
+    //     "net worth": "Over $10,000,000",
+    //   },
+    // });
+
+    // var requestOptions = {
+    //   method: "POST",
+    //   headers: myHeaders,
+    //   body: raw,
+    //   mode: "no-cors",
+    //   redirect: "follow",
+    // };
+
+    // fetch(
+    //   "https://www.privyr.com/integrations/api/v1/incoming-webhook",
+    //   requestOptions
+    // )
+    //   .then((response) => response.text())
+    //   .then((result) => console.log(result))
+    //   .catch((error) => console.log("error", error));
+
+    //nodejs axios
+    var data = JSON.stringify({
+      name: "abdulshakoor",
+      lead_source: "Avengers Website",
+      email: "tony@avengers.com",
+      phone: "+15559876543",
+      other_fields: {
+        Country: "Wakanda",
+        "net worth": "Over $10,000,000",
+      },
+    });
+
+    // var config = {
+    //   method: "post",
+    //   maxBodyLength: Infinity,
+    //   url: "https://www.privyr.com/integrations/api/v1/incoming-webhook",
+    //   headers: {
+    //     "Access-Control-Allow-Origin": "*",
+    //     "Access-Control-Allow-Methods": "POST",
+    //     "Access-Control-Allow-Headers":
+    //       "Origin, X-Requested-With, Content-Type, Accept,X-TOKEN",
+    //     "Content-Type": "application/json",
+    //     "X-TOKEN": "Cs4ifdp3",
+    //   },
+    //   data: data,
+    // };
+
+    // axios(config)
+    //   .then(function (response) {
+    //     console.log(JSON.stringify(response.data));
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+    const headers = {
+      "Access-Control-Allow-Headers": "X-TOKEN",
+      "Content-Type": "application/json",
+      "X-TOKEN": "Cs4ifdp3",
+    };
+
+    axios
+      .post(
+        "https://www.privyr.com/integrations/api/v1/incoming-webhook",
+        data,
+        { headers }
+      )
+      .then((response) => {
+        console.log(response);
       })
       .catch((error) => {
-        console.log("error in insertion");
+        console.log(error);
       });
     //navigation
     navigate(`/fees/${currentPlace}/${cc}`);
